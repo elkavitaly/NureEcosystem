@@ -1,0 +1,14 @@
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\bin\Debug\PrPr_Project.DAL.dll.config
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\bin\Debug\PrPr_Project.DAL.dll
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\bin\Debug\PrPr_Project.DAL.pdb
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\bin\Debug\EntityFramework.dll
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\bin\Debug\EntityFramework.xml
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\obj\Debug\PrPr_Project.DAL.csprojAssemblyReference.cache
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\obj\Debug\PrPr_Project.DAL.csproj.CoreCompileInputs.cache
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\obj\Debug\PrPr_Project.DAL.csproj.CopyComplete
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\obj\Debug\PrPr_Project.DAL.dll
+C:\Users\avdee\source\repos\PrPr_Project\PrPr_Project.DAL\obj\Debug\PrPr_Project.DAL.pdb
