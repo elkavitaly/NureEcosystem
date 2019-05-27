@@ -27,14 +27,14 @@ namespace PrPr_Project.WEB.Controllers
         public ActionResult Catalog()
         {
             IEnumerable<AlternativeDTO> phoneDtos = adminService.GetAll();
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AlternativeDTO, AlternativeViewModel>()).CreateMapper();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AlternativeDTO, AlternativeViewModel>())
+                .CreateMapper();
             var alternatives = mapper.Map<IEnumerable<AlternativeDTO>, List<AlternativeViewModel>>(phoneDtos);
             return View(alternatives);
         }
 
         public ActionResult Contact()
         {
-
             return View();
         }
     }

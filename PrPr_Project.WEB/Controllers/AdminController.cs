@@ -25,7 +25,8 @@ namespace PrPr_Project.WEB.Controllers
         public ActionResult Main()
         {
             IEnumerable<AlternativeDTO> phoneDtos = adminService.GetAll();
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AlternativeDTO, AlternativeViewModel>()).CreateMapper();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AlternativeDTO, AlternativeViewModel>())
+                .CreateMapper();
             var alternatives = mapper.Map<IEnumerable<AlternativeDTO>, List<AlternativeViewModel>>(phoneDtos);
             return View(alternatives);
         }
@@ -33,12 +34,16 @@ namespace PrPr_Project.WEB.Controllers
         [HttpPost]
         public ActionResult Main(AlternativeViewModel alternative)
         {
-            AlternativeDTO alt = new AlternativeDTO() { Name = alternative.Name, Description = alternative.Description, Faculty = alternative.Faculty,
-            Speciality = alternative.Speciality, Id = 0 };
+            AlternativeDTO alt = new AlternativeDTO()
+            {
+                Name = alternative.Name, Description = alternative.Description, Faculty = alternative.Faculty,
+                Speciality = alternative.Speciality, Id = 0
+            };
             //return Content($@"{alt.Name}, {alt.Description}, {alt.Faculty}, {alt.Speciality}, {alt.Id}");
             adminService.CreateAlternative(alt);
             IEnumerable<AlternativeDTO> phoneDtos = adminService.GetAll();
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AlternativeDTO, AlternativeViewModel>()).CreateMapper();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AlternativeDTO, AlternativeViewModel>())
+                .CreateMapper();
             var alternatives = mapper.Map<IEnumerable<AlternativeDTO>, List<AlternativeViewModel>>(phoneDtos);
             return View(alternatives);
         }
@@ -59,20 +64,26 @@ namespace PrPr_Project.WEB.Controllers
                 return HttpNotFound();
             }
 
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AlternativeDTO, AlternativeViewModel>()).CreateMapper();
-            AlternativeViewModel alt = mapper.Map<AlternativeDTO, AlternativeViewModel>(adminService.GetAlternative(id));
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AlternativeDTO, AlternativeViewModel>())
+                .CreateMapper();
+            AlternativeViewModel alt =
+                mapper.Map<AlternativeDTO, AlternativeViewModel>(adminService.GetAlternative(id));
             if (alt != null)
             {
-                return View("ChangeAlternative", (object)alt);
+                return View("ChangeAlternative", (object) alt);
             }
+
             return HttpNotFound();
-            
         }
 
         [HttpPost]
         public ActionResult ChangeAlternative(AlternativeViewModel alt)
         {
-            AlternativeDTO alternative = new AlternativeDTO { Id = alt.Id, Speciality = alt.Speciality, Faculty = alt.Faculty, Description = alt.Description, Name = alt.Name };
+            AlternativeDTO alternative = new AlternativeDTO
+            {
+                Id = alt.Id, Speciality = alt.Speciality, Faculty = alt.Faculty, Description = alt.Description,
+                Name = alt.Name
+            };
 
             adminService.UpdateAlternative(alternative);
             return RedirectToActionPermanent("Main");
@@ -85,6 +96,5 @@ namespace PrPr_Project.WEB.Controllers
             adminService.DeleteAlternative(id);
             return RedirectToAction("Main");
         }
-
     }
 }
