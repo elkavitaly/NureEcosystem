@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Mvc;
+using Microsoft.Owin.Security;
 using Newtonsoft.Json;
 using PrPr_Project.WEB.Models.Structure;
 
@@ -160,6 +161,26 @@ namespace PrPr_Project.WEB.Controllers
             }
 
             return groups;
+        }
+
+        public void Get()
+        {
+            var result = "";
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(Uri);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var response = client.GetAsync("http://cist.nure.ua/ias/app/tt/f?p=778:201:1519161731469535:::201:P201_FIRST_DATE,P201_LAST_DATE,P201_GROUP,P201_POTOK:01.02.2019,30.07.2019,6496576,0:");
+                response.Wait();
+                if (response.Result.IsSuccessStatusCode)
+                {
+                    var read = response.Result.Content.ReadAsStringAsync();
+                    read.Wait();
+                    result = read.Result;
+                }
+            }
         }
     }
 }
