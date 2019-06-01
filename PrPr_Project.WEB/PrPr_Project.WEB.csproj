@@ -203,6 +203,8 @@
     <Compile Include="Models\NewsItemViewModel.cs" />
       <Compile Include="Models\Structure\Entity.cs"/>
       <Compile Include="Models\Structure\Group.cs"/>
+      <Compile Include="Models\Structure\Lesson.cs"/>
+      <Compile Include="Models\Structure\Subject.cs"/>
       <Compile Include="Models\Structure\Teacher.cs"/>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

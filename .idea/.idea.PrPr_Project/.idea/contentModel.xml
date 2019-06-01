@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\vital\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\vital\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_PrPr_Project.85642877.00" t="ExcludeRecursive" />
-    <e p="C:\Users\vital\source\repos\PrPr_Project" t="IncludeFlat">
+    <e p="C:\Users\drago\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\drago\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_PrPr_Project.437439905.00" t="ExcludeRecursive" />
+    <e p="C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="PrPr_Project.BL" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -378,6 +378,8 @@
           <e p="Structure" t="Include">
             <e p="Entity.cs" t="Include" />
             <e p="Group.cs" t="Include" />
+            <e p="Lesson.cs" t="Include" />
+            <e p="Subject.cs" t="Include" />
             <e p="Teacher.cs" t="Include" />
           </e>
         </e>
