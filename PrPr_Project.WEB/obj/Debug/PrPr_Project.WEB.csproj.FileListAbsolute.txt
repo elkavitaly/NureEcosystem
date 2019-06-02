@@ -400,3 +400,5 @@ C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\obj\Debug\PrPr_Project.WEB.csproj.CopyComplete
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\obj\Debug\PrPr_Project.WEB.dll
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\obj\Debug\PrPr_Project.WEB.pdb
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\System.ValueTuple.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\System.ValueTuple.xml
