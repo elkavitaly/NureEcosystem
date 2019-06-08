@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace PrPr_Project.WEB.Models.Structure
+namespace PrPr_Project.BL.ApiModels
 {
     public class Subject
     {

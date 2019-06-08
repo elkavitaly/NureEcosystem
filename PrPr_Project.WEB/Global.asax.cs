@@ -22,10 +22,10 @@ namespace PrPr_Project.WEB
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
-
             NinjectModule adminModule = new AdminModule();
             NinjectModule serviceModule = new ServiceModule();
-            var kernel = new StandardKernel(adminModule, serviceModule);
+            NinjectModule apiModule = new ApiModule();
+            var kernel = new StandardKernel(adminModule, serviceModule, apiModule);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
     }

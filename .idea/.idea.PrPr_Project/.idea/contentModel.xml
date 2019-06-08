@@ -6,6 +6,16 @@
     <e p="C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="PrPr_Project.BL" t="IncludeRecursive">
+        <e p="Api" t="Include">
+          <e p="JsonApi.cs" t="Include" />
+        </e>
+        <e p="ApiModels" t="Include">
+          <e p="Entity.cs" t="Include" />
+          <e p="Group.cs" t="Include" />
+          <e p="Lesson.cs" t="Include" />
+          <e p="Subject.cs" t="Include" />
+          <e p="Teacher.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="DTO" t="Include">
           <e p="AlternativeDTO.cs" t="Include" />
@@ -16,6 +26,7 @@
         </e>
         <e p="Interfaces" t="Include">
           <e p="IAdminService.cs" t="Include" />
+          <e p="IApi.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
@@ -375,13 +386,6 @@
           <e p="IdentityModels.cs" t="Include" />
           <e p="ManageViewModels.cs" t="Include" />
           <e p="NewsItemViewModel.cs" t="Include" />
-          <e p="Structure" t="Include">
-            <e p="Entity.cs" t="Include" />
-            <e p="Group.cs" t="Include" />
-            <e p="Lesson.cs" t="Include" />
-            <e p="Subject.cs" t="Include" />
-            <e p="Teacher.cs" t="Include" />
-          </e>
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
@@ -420,6 +424,7 @@
         <e p="Startup.cs" t="Include" />
         <e p="Util" t="Include">
           <e p="AdminModule.cs" t="Include" />
+          <e p="ApiModule.cs" t="Include" />
           <e p="NinjectDependencyResolver.cs" t="Include" />
         </e>
         <e p="Views" t="Include">

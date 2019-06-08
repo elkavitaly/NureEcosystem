@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using System.Data;
-
-namespace PrPr_Project.WEB.Models.Structure
+namespace PrPr_Project.BL.ApiModels
 {
     public class Entity
     {

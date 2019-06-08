@@ -75,7 +75,7 @@ namespace PrPr_Project.WEB.Controllers
                     return RedirectToAction("SendCode", new {ReturnUrl = returnUrl, RememberMe = model.RememberMe});
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Неудачная попытка входа.");
+                    ModelState.AddModelError("", @"Неудачная попытка входа.");
                     return View(model);
             }
         }
@@ -118,9 +118,8 @@ namespace PrPr_Project.WEB.Controllers
                     return RedirectToLocal(model.ReturnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
-                case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Неправильный код.");
+                    ModelState.AddModelError("", @"Неправильный код.");
                     return View(model);
             }
         }
