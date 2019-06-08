@@ -40,18 +40,18 @@ steps:
   continueOnError: true
 
 - task: CopyFiles@1
-  displayName: 'Copy Files to: $(build.artifactStagingDirectory)'
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
     SourceFolder: '$(build.soursedirectory)'
     Contents: 
       '**\bin\$(buildConfiguration)\**
       src\*.testsettings'
-    TargetFolder: '$(build.artifactStagingDirectory)'
+    TargetFolder: '$(build.artifactstagingdirectory)'
   condition: always()
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts: drop'
   inputs:
-    PathtoPublish: '$(build.artifactStagingDirectory)'
+    PathtoPublish: '$(build.artifactstagingdirectory)'
   condition: always()
     
