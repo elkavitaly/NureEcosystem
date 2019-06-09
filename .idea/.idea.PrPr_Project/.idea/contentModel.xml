@@ -6,15 +6,477 @@
     <e p="C:\Users\drago\.Rider2019.1\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\drago\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_PrPr_Project.437439905.00" t="ExcludeRecursive" />
     <e p="C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
       <e p="PrPr_Project.BL" t="IncludeRecursive">
+        <e p="Api" t="Include">
+          <e p="JsonApi.cs" t="Include" />
+        </e>
+        <e p="ApiModels" t="Include">
+          <e p="Entity.cs" t="Include" />
+          <e p="Group.cs" t="Include" />
+          <e p="Lesson.cs" t="Include" />
+          <e p="Subject.cs" t="Include" />
+          <e p="Teacher.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DTO" t="Include">
+          <e p="AlternativeDTO.cs" t="Include" />
+          <e p="NewsItemDTO.cs" t="Include" />
+        </e>
+        <e p="Infrastructure" t="Include">
+          <e p="ServiceModule .cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="IAdminService.cs" t="Include" />
+          <e p="IApi.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
         <e p="PrPr_Project.BL.csproj" t="IncludeRecursive" />
+        <e p="Services" t="Include">
+          <e p="AdminService.cs" t="Include" />
+        </e>
       </e>
       <e p="PrPr_Project.DAL" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EF" t="Include">
+          <e p="ApplicationContext.cs" t="Include" />
+        </e>
+        <e p="Entities" t="Include">
+          <e p="Alternative.cs" t="Include" />
+          <e p="NewsItem.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="IRepository.cs" t="Include" />
+          <e p="IUnitOfWork.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
         <e p="PrPr_Project.DAL.csproj" t="IncludeRecursive" />
+        <e p="Repositories" t="Include">
+          <e p="AlternativeRepository.cs" t="Include" />
+          <e p="EFUnitOfWork.cs" t="Include" />
+          <e p="NewsItemRepository.cs" t="Include" />
+        </e>
       </e>
       <e p="PrPr_Project.sln" t="IncludeFlat" />
       <e p="PrPr_Project.WEB" t="IncludeRecursive">
+        <e p="App_Data" t="Include" />
+        <e p="App_Start" t="Include">
+          <e p="BundleConfig.cs" t="Include" />
+          <e p="FilterConfig.cs" t="Include" />
+          <e p="IdentityConfig.cs" t="Include" />
+          <e p="RouteConfig.cs" t="Include" />
+          <e p="Startup.Auth.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Content" t="Include">
+          <e p="bootstrap-grid.css" t="Include" />
+          <e p="bootstrap-grid.css.map" t="Include" />
+          <e p="bootstrap-grid.min.css" t="Include" />
+          <e p="bootstrap-grid.min.css.map" t="Include" />
+          <e p="bootstrap-reboot.css" t="Include" />
+          <e p="bootstrap-reboot.css.map" t="Include" />
+          <e p="bootstrap-reboot.min.css" t="Include" />
+          <e p="bootstrap-reboot.min.css.map" t="Include" />
+          <e p="bootstrap-theme.css" t="Include" />
+          <e p="bootstrap-theme.css.map" t="Include" />
+          <e p="bootstrap-theme.min.css" t="Include" />
+          <e p="bootstrap-theme.min.css.map" t="Include" />
+          <e p="bootstrap.css" t="Include" />
+          <e p="bootstrap.css.map" t="Include" />
+          <e p="bootstrap.min.css" t="Include" />
+          <e p="bootstrap.min.css.map" t="Include" />
+          <e p="Icon-font-7-stroke-PIXEDEN-v-1.2.0" t="Include">
+            <e p="assets" t="Include">
+              <e p="docs" t="Include">
+                <e p="style.css" t="Include" />
+              </e>
+              <e p="fonts" t="Include">
+                <e p="Pe-icon-7-stroke.eot" t="Include" />
+                <e p="Pe-icon-7-stroke.svg" t="Include" />
+                <e p="Pe-icon-7-stroke.ttf" t="Include" />
+                <e p="Pe-icon-7-stroke.woff" t="Include" />
+              </e>
+              <e p="images" t="Include">
+                <e p="background-paralax.jpg" t="Include" />
+                <e p="logo.png" t="Include" />
+              </e>
+              <e p="libs" t="Include">
+                <e p="css" t="Include">
+                  <e p="bootstrap-select.css" t="Include" />
+                  <e p="bootstrap.min.css" t="Include" />
+                  <e p="prism.css" t="Include" />
+                </e>
+                <e p="js" t="Include">
+                  <e p="bootstrap-select.min.js" t="Include" />
+                  <e p="bootstrap.min.js" t="Include" />
+                  <e p="jquery-1.11.1.min.js" t="Include" />
+                  <e p="jquery-1.11.1.min.map" t="Include" />
+                  <e p="prism.js" t="Include" />
+                </e>
+              </e>
+              <e p="Pe-icon-7-stroke.css" t="Include" />
+              <e p="refs" t="Include">
+                <e p="main.js" t="Include" />
+                <e p="style.css" t="Include" />
+              </e>
+            </e>
+            <e p="changelog-v1.2.0.txt" t="Include" />
+            <e p="documentation.html" t="Include" />
+            <e p="icomoon" t="Include">
+              <e p="selection.json" t="Include" />
+            </e>
+            <e p="pe-icon-7-stroke" t="Include">
+              <e p="css" t="Include">
+                <e p="helper.css" t="Include" />
+                <e p="Pe-icon-7-stroke.css" t="Include" />
+              </e>
+              <e p="fonts" t="Include">
+                <e p="Pe-icon-7-stroke.eot" t="Include" />
+                <e p="Pe-icon-7-stroke.svg" t="Include" />
+                <e p="Pe-icon-7-stroke.ttf" t="Include" />
+                <e p="Pe-icon-7-stroke.woff" t="Include" />
+              </e>
+            </e>
+            <e p="read-me.txt" t="Include" />
+            <e p="reference.html" t="Include" />
+            <e p="SVG" t="Include">
+              <e p="add-user.svg" t="Include" />
+              <e p="airplay.svg" t="Include" />
+              <e p="alarm.svg" t="Include" />
+              <e p="album.svg" t="Include" />
+              <e p="albums.svg" t="Include" />
+              <e p="anchor.svg" t="Include" />
+              <e p="angle-down-circle.svg" t="Include" />
+              <e p="angle-down.svg" t="Include" />
+              <e p="angle-left-circle.svg" t="Include" />
+              <e p="angle-left.svg" t="Include" />
+              <e p="angle-right-circle.svg" t="Include" />
+              <e p="angle-right.svg" t="Include" />
+              <e p="angle-up-circle.svg" t="Include" />
+              <e p="angle-up.svg" t="Include" />
+              <e p="arc.svg" t="Include" />
+              <e p="attention.svg" t="Include" />
+              <e p="back-2.svg" t="Include" />
+              <e p="back.svg" t="Include" />
+              <e p="ball.svg" t="Include" />
+              <e p="bandaid.svg" t="Include" />
+              <e p="battery.svg" t="Include" />
+              <e p="bell.svg" t="Include" />
+              <e p="bicycle.svg" t="Include" />
+              <e p="bluetooth.svg" t="Include" />
+              <e p="bookmarks.svg" t="Include" />
+              <e p="bottom-arrow.svg" t="Include" />
+              <e p="box1.svg" t="Include" />
+              <e p="box2.svg" t="Include" />
+              <e p="browser.svg" t="Include" />
+              <e p="calculator.svg" t="Include" />
+              <e p="call.svg" t="Include" />
+              <e p="camera.svg" t="Include" />
+              <e p="car.svg" t="Include" />
+              <e p="cart.svg" t="Include" />
+              <e p="cash.svg" t="Include" />
+              <e p="chat.svg" t="Include" />
+              <e p="check.svg" t="Include" />
+              <e p="clock.svg" t="Include" />
+              <e p="close-circle.svg" t="Include" />
+              <e p="close.svg" t="Include" />
+              <e p="cloud-download.svg" t="Include" />
+              <e p="cloud-upload.svg" t="Include" />
+              <e p="cloud.svg" t="Include" />
+              <e p="coffee.svg" t="Include" />
+              <e p="comment.svg" t="Include" />
+              <e p="compass.svg" t="Include" />
+              <e p="config.svg" t="Include" />
+              <e p="copy-file.svg" t="Include" />
+              <e p="credit.svg" t="Include" />
+              <e p="crop.svg" t="Include" />
+              <e p="culture.svg" t="Include" />
+              <e p="cup.svg" t="Include" />
+              <e p="date.svg" t="Include" />
+              <e p="delete-user.svg" t="Include" />
+              <e p="diamond.svg" t="Include" />
+              <e p="disk.svg" t="Include" />
+              <e p="diskette.svg" t="Include" />
+              <e p="display1.svg" t="Include" />
+              <e p="display2.svg" t="Include" />
+              <e p="door-lock.svg" t="Include" />
+              <e p="download.svg" t="Include" />
+              <e p="drawer.svg" t="Include" />
+              <e p="drop.svg" t="Include" />
+              <e p="edit.svg" t="Include" />
+              <e p="exapnd2.svg" t="Include" />
+              <e p="expand1.svg" t="Include" />
+              <e p="eyedropper.svg" t="Include" />
+              <e p="female.svg" t="Include" />
+              <e p="file.svg" t="Include" />
+              <e p="film.svg" t="Include" />
+              <e p="filter.svg" t="Include" />
+              <e p="flag.svg" t="Include" />
+              <e p="folder.svg" t="Include" />
+              <e p="gift.svg" t="Include" />
+              <e p="glasses.svg" t="Include" />
+              <e p="gleam.svg" t="Include" />
+              <e p="global.svg" t="Include" />
+              <e p="graph.svg" t="Include" />
+              <e p="graph1.svg" t="Include" />
+              <e p="graph2.svg" t="Include" />
+              <e p="graph3.svg" t="Include" />
+              <e p="gym.svg" t="Include" />
+              <e p="hammer.svg" t="Include" />
+              <e p="headphones.svg" t="Include" />
+              <e p="helm.svg" t="Include" />
+              <e p="help1.svg" t="Include" />
+              <e p="help2.svg" t="Include" />
+              <e p="home.svg" t="Include" />
+              <e p="hourglass.svg" t="Include" />
+              <e p="id.svg" t="Include" />
+              <e p="info.svg" t="Include" />
+              <e p="joy.svg" t="Include" />
+              <e p="junk.svg" t="Include" />
+              <e p="key.svg" t="Include" />
+              <e p="keypad.svg" t="Include" />
+              <e p="leaf.svg" t="Include" />
+              <e p="left-arrow.svg" t="Include" />
+              <e p="less.svg" t="Include" />
+              <e p="light.svg" t="Include" />
+              <e p="like.svg" t="Include" />
+              <e p="like2.svg" t="Include" />
+              <e p="link.svg" t="Include" />
+              <e p="lintern.svg" t="Include" />
+              <e p="lock.svg" t="Include" />
+              <e p="look.svg" t="Include" />
+              <e p="loop.svg" t="Include" />
+              <e p="magic-wand.svg" t="Include" />
+              <e p="magnet.svg" t="Include" />
+              <e p="mail-open-file.svg" t="Include" />
+              <e p="mail-open.svg" t="Include" />
+              <e p="mail.svg" t="Include" />
+              <e p="male.svg" t="Include" />
+              <e p="map-2.svg" t="Include" />
+              <e p="map-marker.svg" t="Include" />
+              <e p="map.svg" t="Include" />
+              <e p="medal.svg" t="Include" />
+              <e p="menu.svg" t="Include" />
+              <e p="micro.svg" t="Include" />
+              <e p="monitor.svg" t="Include" />
+              <e p="moon.svg" t="Include" />
+              <e p="more.svg" t="Include" />
+              <e p="mouse.svg" t="Include" />
+              <e p="music.svg" t="Include" />
+              <e p="musiclist.svg" t="Include" />
+              <e p="mute.svg" t="Include" />
+              <e p="network.svg" t="Include" />
+              <e p="news-paper.svg" t="Include" />
+              <e p="next-2.svg" t="Include" />
+              <e p="next.svg" t="Include" />
+              <e p="note.svg" t="Include" />
+              <e p="note2.svg" t="Include" />
+              <e p="notebook.svg" t="Include" />
+              <e p="paint-bucket.svg" t="Include" />
+              <e p="paint.svg" t="Include" />
+              <e p="paper-plane.svg" t="Include" />
+              <e p="paperclip.svg" t="Include" />
+              <e p="pen.svg" t="Include" />
+              <e p="pendrive.svg" t="Include" />
+              <e p="phone.svg" t="Include" />
+              <e p="photo-gallery.svg" t="Include" />
+              <e p="photo.svg" t="Include" />
+              <e p="piggy.svg" t="Include" />
+              <e p="pin.svg" t="Include" />
+              <e p="plane.svg" t="Include" />
+              <e p="play.svg" t="Include" />
+              <e p="plug.svg" t="Include" />
+              <e p="plugin.svg" t="Include" />
+              <e p="plus.svg" t="Include" />
+              <e p="portfolio.svg" t="Include" />
+              <e p="power.svg" t="Include" />
+              <e p="prev.svg" t="Include" />
+              <e p="print.svg" t="Include" />
+              <e p="radio.svg" t="Include" />
+              <e p="refresh-2.svg" t="Include" />
+              <e p="refresh-cloud.svg" t="Include" />
+              <e p="refresh.svg" t="Include" />
+              <e p="repeat.svg" t="Include" />
+              <e p="ribbon.svg" t="Include" />
+              <e p="right-arrow.svg" t="Include" />
+              <e p="rocket.svg" t="Include" />
+              <e p="safe.svg" t="Include" />
+              <e p="science.svg" t="Include" />
+              <e p="scissors.svg" t="Include" />
+              <e p="search.svg" t="Include" />
+              <e p="server.svg" t="Include" />
+              <e p="settings.svg" t="Include" />
+              <e p="share.svg" t="Include" />
+              <e p="shield.svg" t="Include" />
+              <e p="shopbag.svg" t="Include" />
+              <e p="shuffle.svg" t="Include" />
+              <e p="signal.svg" t="Include" />
+              <e p="smile.svg" t="Include" />
+              <e p="speaker.svg" t="Include" />
+              <e p="star.svg" t="Include" />
+              <e p="stopwatch.svg" t="Include" />
+              <e p="study.svg" t="Include" />
+              <e p="sun.svg" t="Include" />
+              <e p="switch.svg" t="Include" />
+              <e p="target.svg" t="Include" />
+              <e p="ticket.svg" t="Include" />
+              <e p="timer.svg" t="Include" />
+              <e p="tools.svg" t="Include" />
+              <e p="trash.svg" t="Include" />
+              <e p="umbrella.svg" t="Include" />
+              <e p="unlock.svg" t="Include" />
+              <e p="up-arrow.svg" t="Include" />
+              <e p="upload.svg" t="Include" />
+              <e p="usb.svg" t="Include" />
+              <e p="user-female.svg" t="Include" />
+              <e p="user.svg" t="Include" />
+              <e p="users.svg" t="Include" />
+              <e p="vector.svg" t="Include" />
+              <e p="video.svg" t="Include" />
+              <e p="voicemail.svg" t="Include" />
+              <e p="volume.svg" t="Include" />
+              <e p="volume1.svg" t="Include" />
+              <e p="volume2.svg" t="Include" />
+              <e p="wallet.svg" t="Include" />
+              <e p="way.svg" t="Include" />
+              <e p="wine.svg" t="Include" />
+              <e p="world.svg" t="Include" />
+              <e p="wristwatch.svg" t="Include" />
+            </e>
+          </e>
+          <e p="images" t="Include" />
+          <e p="main.css" t="Include" />
+          <e p="Site.css" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="AccountController.cs" t="Include" />
+          <e p="AdminController.cs" t="Include" />
+          <e p="ApiController.cs" t="Include" />
+          <e p="HomeController.cs" t="Include" />
+          <e p="ManageController.cs" t="Include" />
+        </e>
+        <e p="favicon.ico" t="Include" />
+        <e p="fonts" t="Include">
+          <e p="glyphicons-halflings-regular.eot" t="Include" />
+          <e p="glyphicons-halflings-regular.svg" t="Include" />
+          <e p="glyphicons-halflings-regular.ttf" t="Include" />
+          <e p="glyphicons-halflings-regular.woff" t="Include" />
+          <e p="glyphicons-halflings-regular.woff2" t="Include" />
+        </e>
+        <e p="Global.asax" t="Include" />
+        <e p="Global.asax.cs" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="201905091258236_InitialCreate.cs" t="Include" />
+          <e p="201905091258236_InitialCreate.Designer.cs" t="Include" />
+          <e p="201905091258236_InitialCreate.resx" t="Include" />
+          <e p="201905180733274_MigrateDb.cs" t="Include" />
+          <e p="201905180733274_MigrateDb.Designer.cs" t="Include" />
+          <e p="201905180733274_MigrateDb.resx" t="Include" />
+          <e p="Configuration.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="AccountViewModels.cs" t="Include" />
+          <e p="AlternativeViewModel.cs" t="Include" />
+          <e p="IdentityModels.cs" t="Include" />
+          <e p="ManageViewModels.cs" t="Include" />
+          <e p="NewsItemViewModel.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
         <e p="PrPr_Project.WEB.csproj" t="IncludeRecursive" />
+        <e p="Scripts" t="Include">
+          <e p="admin_search.js" t="Include" />
+          <e p="bootstrap.bundle.js" t="Include" />
+          <e p="bootstrap.bundle.js.map" t="Include" />
+          <e p="bootstrap.bundle.min.js" t="Include" />
+          <e p="bootstrap.bundle.min.js.map" t="Include" />
+          <e p="bootstrap.js" t="Include" />
+          <e p="bootstrap.js.map" t="Include" />
+          <e p="bootstrap.min.js" t="Include" />
+          <e p="bootstrap.min.js.map" t="Include" />
+          <e p="catalog_search.js" t="Include" />
+          <e p="catalog_toggle.js" t="Include" />
+          <e p="Journalist.js" t="Include" />
+          <e p="jquery-3.3.1.intellisense.js" t="Include" />
+          <e p="jquery-3.3.1.js" t="Include" />
+          <e p="jquery-3.3.1.min.js" t="Include" />
+          <e p="jquery-3.3.1.min.map" t="Include" />
+          <e p="jquery-3.3.1.slim.js" t="Include" />
+          <e p="jquery-3.3.1.slim.min.js" t="Include" />
+          <e p="jquery-3.3.1.slim.min.map" t="Include" />
+          <e p="jquery.js" t="Include" />
+          <e p="jquery.validate-vsdoc.js" t="Include" />
+          <e p="jquery.validate.js" t="Include" />
+          <e p="jquery.validate.min.js" t="Include" />
+          <e p="jquery.validate.unobtrusive.js" t="Include" />
+          <e p="jquery.validate.unobtrusive.min.js" t="Include" />
+          <e p="modernizr-2.8.3.js" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="Util" t="Include">
+          <e p="AdminModule.cs" t="Include" />
+          <e p="ApiModule.cs" t="Include" />
+          <e p="NinjectDependencyResolver.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Account" t="Include">
+            <e p="_ExternalLoginsListPartial.cshtml" t="Include" />
+            <e p="ConfirmEmail.cshtml" t="Include" />
+            <e p="ExternalLoginConfirmation.cshtml" t="Include" />
+            <e p="ExternalLoginFailure.cshtml" t="Include" />
+            <e p="ForgotPassword.cshtml" t="Include" />
+            <e p="ForgotPasswordConfirmation.cshtml" t="Include" />
+            <e p="Login.cshtml" t="Include" />
+            <e p="Register.cshtml" t="Include" />
+            <e p="ResetPassword.cshtml" t="Include" />
+            <e p="ResetPasswordConfirmation.cshtml" t="Include" />
+            <e p="SendCode.cshtml" t="Include" />
+            <e p="VerifyCode.cshtml" t="Include" />
+          </e>
+          <e p="Admin" t="Include">
+            <e p="ChangeAlternative.cshtml" t="Include" />
+            <e p="Main.cshtml" t="Include" />
+          </e>
+          <e p="Home" t="Include">
+            <e p="Catalog.cshtml" t="Include" />
+            <e p="Contact.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Manage" t="Include">
+            <e p="AddPhoneNumber.cshtml" t="Include" />
+            <e p="ChangePassword.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+            <e p="ManageLogins.cshtml" t="Include" />
+            <e p="SetPassword.cshtml" t="Include" />
+            <e p="VerifyPhoneNumber.cshtml" t="Include" />
+          </e>
+          <e p="Schedule" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+            <e p="_LoginPartial.cshtml" t="Include" />
+            <e p="Error.cshtml" t="Include" />
+            <e p="Lockout.cshtml" t="Include" />
+          </e>
+          <e p="Web.config" t="Include" />
+        </e>
+        <e p="Web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Web.Release.config" t="Include" />
       </e>
     </e>
   </component>

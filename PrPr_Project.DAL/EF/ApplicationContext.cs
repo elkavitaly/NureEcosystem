@@ -1,10 +1,5 @@
-﻿using PrPr_Project.DAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
+using PrPr_Project.DAL.Entities;
 
 namespace PrPr_Project.DAL.EF
 {
@@ -12,5 +7,10 @@ namespace PrPr_Project.DAL.EF
     {
         public DbSet<NewsItem> NewsItems { get; set; }
         public DbSet<Alternative> Alternatives { get; set; }
+
+//        public ApplicationContext():base("ProjectDb")
+//        {
+//            
+//        }
     }
 }

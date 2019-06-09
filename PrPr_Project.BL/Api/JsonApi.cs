@@ -63,9 +63,11 @@ namespace PrPr_Project.BL.Api
                 var teacher = new Teacher();
                 foreach (var element in subject.Types)
                 {
-                    if (!element.Key.Equals((info[1]))) continue;
-                    teacher = element.Value;
-                    break;
+                    if (element.Key.Equals((info[1])))
+                    {
+                        teacher = element.Value;
+                        break;
+                    }
                 }
 
                 //create new lesson
@@ -80,6 +82,7 @@ namespace PrPr_Project.BL.Api
                     Date = array[1].Trim(),
                     Start = array[2].Trim(),
                     End = array[4].Trim(),
+                    TeacherId = teacher.Id,
                     ShortTeacher = teacher.ShortName,
                     LongTeacher = teacher.FullName
                 };
@@ -96,7 +99,7 @@ namespace PrPr_Project.BL.Api
             var result = HttpRequestCsv(url);
             var subjectList = new List<Lesson>();
             var teacherList = (List<Teacher>) JsonConvert.DeserializeObject(GetAllTeachers(), typeof(List<Teacher>));
-            var teacher = teacherList.Find(t => t.Id.Equals(id)) ?? new Teacher();
+            var teacher = teacherList.Find(t => t.Id.Equals(id.ToString())) ?? new Teacher();
 
             //get subject and teacher list
             var subjects = GetHtmlTeacher(id);
@@ -123,6 +126,7 @@ namespace PrPr_Project.BL.Api
                         Date = array[1].Trim(),
                         Start = array[2].Trim(),
                         End = array[4].Trim(),
+                        TeacherId = teacher.Id,
                         ShortTeacher = teacher.ShortName,
                         LongTeacher = teacher.FullName
                     };
@@ -141,7 +145,12 @@ namespace PrPr_Project.BL.Api
             return JsonConvert.SerializeObject(subjectList, Formatting.None);
         }
 
-        public string GetNews() => JsonConvert.SerializeObject(new EFUnitOfWork().NewsItems.GetAll(), Formatting.None);
+        public string GetNews()
+        {
+            var news = new EFUnitOfWork().NewsItems.GetAll().ToList();
+            news.ForEach(n => n.Img = Uri + "Api/Image?name=" + n.Img);
+            return JsonConvert.SerializeObject(news, Formatting.None);
+        }
 
         public string GetAlternatives(string name = null)
         {
@@ -226,8 +235,7 @@ namespace PrPr_Project.BL.Api
             //getting .csv-file with schedule using get request to cist.nure.ua
             var result =
                 HttpRequest(
-                    Path +
-                    $"f?p=778:201:1519161731469535:::201:P201_FIRST_DATE,P201_LAST_DATE,P201_GROUP,P201_POTOK:18.02.2019,30.06.2019,{groupId},0:");
+                    $"{Path}f?p=778:201:1519161731469535:::201:P201_FIRST_DATE,P201_LAST_DATE,P201_GROUP,P201_POTOK:18.02.2019,30.06.2019,{groupId},0:");
             var rows = GetRowsOfSubjectTable(result);
             var list = new List<Subject>();
 
@@ -238,24 +246,23 @@ namespace PrPr_Project.BL.Api
             for (var i = 1; i < rows.Length; i++)
             {
                 var subjectClass = new Subject {Types = new Dictionary<string, Teacher>()};
-                var (shortName, longName, array) = GetNameOfSubject(rows[i]);
-                subjectClass.ShortSubject = shortName;
-                subjectClass.LongSubject = longName;
+                var subject = GetNameOfSubject(rows[i]);
+                var array = subject.Array;
+                subjectClass.ShortSubject = subject.ShortName;
+                subjectClass.LongSubject = subject.LongName;
 
                 for (var j = 1; j < array.Length - 1; j++)
                 {
                     array[j] = array[j].Trim();
-                    var spaceIndex = array[j].IndexOf(" ", StringComparison.Ordinal);
-                    //type of lesson
-                    var type = array[j].Substring(0, spaceIndex + 1).Trim();
 
-                    var comaIndex = array[j].LastIndexOf(",", StringComparison.Ordinal);
-                    //teacher name
-                    var teacherShort = array[j].Substring(comaIndex + 1).Trim();
-
-                    var teacher = Regex.IsMatch(teacherShort, @"^.+?\s.\.\s.\.$")
-                        ? buffer.Find(t => t.ShortName.Equals(teacherShort))
-                        : new Teacher();
+                    const string patternSubject =
+                        @"^([А-Яа-яІє]+)(\s.+?\-\s)(.+?)(\,\s+)([А-Яа-яІє]+?\s[А-Яа-яІє]\.\s[А-Яа-яІє]\.)$";
+                    var regex = new Regex(patternSubject, RegexOptions.IgnoreCase);
+                    var match = regex.Match(array[j]);
+                    var groups = match.Groups;
+                    var type = groups[1].Value;
+                    var teacherName = groups[5].Value;
+                    var teacher = buffer.Find(t => t.ShortName.Equals(teacherName)) ?? new Teacher();
 
                     if (!subjectClass.Types.ContainsKey(type))
                     {
@@ -290,6 +297,7 @@ namespace PrPr_Project.BL.Api
 
             row = row.Replace('\n', ' ');
             var array = row.Split(new[] {" :"}, StringSplitOptions.None);
+
             var subject = array[0];
             var index = subject.Trim().IndexOf(" ", StringComparison.Ordinal);
 

@@ -11,6 +11,7 @@ namespace PrPr_Project.BL.ApiModels
         public string Date { get; set; }
         public string Start { get; set; }
         public string End { get; set; }
+        public string TeacherId { get; set; }
         public string ShortTeacher { get; set; }
         public string LongTeacher { get; set; }
 

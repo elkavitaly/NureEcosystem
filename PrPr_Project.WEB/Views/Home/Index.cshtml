@@ -1,7 +1,9 @@
 ﻿@{
     ViewBag.Title = "Новости";
 }
-
+<div>
+    <img src="/Api/Image" alt="">
+</div>
 <div class="container">
     <div class="row news_block">
         <div class="col-lg-4 sources_holder">
@@ -26,11 +28,7 @@
             </div>
         </div>
         <div class="col-lg-8 news_holder">
-
-
-            @*@Scripts.Render("~/Journalist")*@
-
-
+            @*@Scripts.Render("~/Journalist") *@
             <div class="news_item">
                 <div class="news_item_content">
                     <div class="row news_item_content_title_holder">
@@ -62,9 +60,15 @@
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
