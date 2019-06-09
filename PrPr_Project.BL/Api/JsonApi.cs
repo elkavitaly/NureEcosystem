@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -9,6 +10,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using PrPr_Project.BL.ApiModels;
 using PrPr_Project.BL.Interfaces;
+using PrPr_Project.DAL.Repositories;
 using Group = PrPr_Project.BL.ApiModels.Group;
 
 namespace PrPr_Project.BL.Api
@@ -139,14 +141,15 @@ namespace PrPr_Project.BL.Api
             return JsonConvert.SerializeObject(subjectList, Formatting.None);
         }
 
-        public string GetNews()
-        {
-            throw new NotImplementedException();
-        }
+        public string GetNews() => JsonConvert.SerializeObject(new EFUnitOfWork().NewsItems.GetAll(), Formatting.None);
 
         public string GetAlternatives(string name = null)
         {
-            throw new NotImplementedException();
+            var alternatives = new EFUnitOfWork().Alternatives.GetAll();
+            return JsonConvert.SerializeObject(
+                name == null
+                    ? alternatives.Take(5).ToList()
+                    : alternatives.Where(alternative => alternative.Name.Contains(name)).ToList(), Formatting.None);
         }
 
         /// <summary>
