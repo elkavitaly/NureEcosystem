@@ -545,6 +545,10 @@
       <Project>{645a024d-6256-440d-b8f1-b9d80bb1fe90}</Project>
       <Name>PrPr_Project.BL</Name>
     </ProjectReference>
+      <ProjectReference Include="..\PrPr_Project.DAL\PrPr_Project.DAL.csproj">
+          <Project>{932135f0-9959-42f9-b377-f9bdc11fdec9}</Project>
+          <Name>PrPr_Project.DAL</Name>
+      </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905091258236_InitialCreate.resx">

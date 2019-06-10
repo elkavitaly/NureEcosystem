@@ -1,4 +1,4 @@
-using System.Web.Mvc;
+using System.Collections.Generic;
 
 namespace PrPr_Project.BL.Interfaces
 {
@@ -10,5 +10,6 @@ namespace PrPr_Project.BL.Interfaces
         string TeacherSchedule(int id);
         string GetNews();
         string GetAlternatives(string name = null);
+        string GetSeveralSchedules(Dictionary<string, List<string>> dictionary);
     }
 }

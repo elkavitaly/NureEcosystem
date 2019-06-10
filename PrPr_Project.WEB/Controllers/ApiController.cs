@@ -16,7 +16,7 @@ namespace PrPr_Project.WEB.Controllers
 
         public ActionResult Image(string name)
         {
-            using (var response = new HttpResponseMessage())
+            using (new HttpResponseMessage())
             {
                 var directory = Server.MapPath("/Content/Images");
                 var path = Path.Combine(directory, name);
@@ -24,7 +24,10 @@ namespace PrPr_Project.WEB.Controllers
             }
         }
 
-        public JsonResult News() => Json(Api.GetNews(), JsonRequestBehavior.AllowGet);
+        public JsonResult News()
+        {
+            return Json(Api.GetNews(), JsonRequestBehavior.AllowGet);
+        }
 
         public JsonResult AllGroups() => Json(Api.GetAllGroups(), JsonRequestBehavior.AllowGet);
 
@@ -40,48 +43,30 @@ namespace PrPr_Project.WEB.Controllers
             return Json(Api.TeacherSchedule(Deserialize<int>(Request.InputStream)), JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult ManyGroups()
+        public JsonResult SeveralSchedules()
         {
-            var data = Deserialize<Dictionary<string, List<string>>>(Request.InputStream);
-            var sb = new StringBuilder();
-            foreach (var element in data)
-            {
-                if (element.Key.Equals("Teacher"))
-                {
-                    foreach (var value in element.Value)
-                    {
-                        sb.Append(Api.TeacherSchedule(int.Parse(value)).Trim(new char[] {'[', ']'}));
-                    }
-                }
-                else if (element.Key.Equals("Group"))
-                {
-                    foreach (var value in element.Value)
-                    {
-                        sb.Append(Api.GroupSchedule(int.Parse(value))).Append(',');
-                    }
-                }
-            }
-
-            sb.Insert(0, '[').Insert(sb.Length - 1, ']');
-
-            return Json(sb.ToString(), JsonRequestBehavior.AllowGet);
+            return Json(Api.GetSeveralSchedules(Deserialize<Dictionary<string, List<string>>>(Request.InputStream)),
+                JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Alternatives(string name) => Json(Api.GetAlternatives(name), JsonRequestBehavior.AllowGet);
-
-        public string Http(int id)
+        public JsonResult Alternatives(string name)
         {
-//            var dict = new Dictionary<string, List<string>>
-//            {
-//                {"Teacher", new List<string>() {"1754070", "6437405"}},
-//                {"Group", new List<string>() {"6496576", "6496579"}}
-//            };
-//            var data = JsonConvert.SerializeObject(dict);
-            var data = id.ToString();
+            return Json(Api.GetAlternatives(name), JsonRequestBehavior.AllowGet);
+        }
+
+        public string Http()
+        {
+            var dict = new Dictionary<string, List<string>>
+            {
+                {"Teacher", new List<string>() {"9", "6437405"}},
+                {"Group", new List<string>() {"6283375", "6283365"}}
+            };
+            var data = JsonConvert.SerializeObject(dict);
+//            var data = id.ToString();
             using (var client = new HttpClient())
             {
                 var content = new StringContent(data, Encoding.Default, "application/json");
-                var response = client.PostAsync("http://localhost:51763/Api/GroupSchedule", content);
+                var response = client.PostAsync("http://localhost:51763/Api/SeveralSchedules", content);
                 var result = response.Result.Content.ReadAsStringAsync();
                 return "Your request:\n" + result.Result;
             }

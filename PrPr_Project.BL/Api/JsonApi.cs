@@ -78,7 +78,7 @@ namespace PrPr_Project.BL.Api
                     LongSubject = subject.LongSubject,
                     Type = info[1],
                     Room = info[2],
-                    Group = info[3],
+                    Group = info[3].Trim(new[] {';', ' ', ','}),
                     Date = array[1].Trim(),
                     Start = array[2].Trim(),
                     End = array[4].Trim(),
@@ -90,7 +90,8 @@ namespace PrPr_Project.BL.Api
                 list.Add(lesson);
             }
 
-            return JsonConvert.SerializeObject(list, Formatting.None);
+            var lessons = list.OrderBy(e => DateTime.Parse(e.Date)).ThenBy(e => DateTime.Parse(e.Start)).ToList();
+            return JsonConvert.SerializeObject(lessons, Formatting.None);
         }
 
         public string TeacherSchedule(int id)
@@ -122,7 +123,7 @@ namespace PrPr_Project.BL.Api
                         LongSubject = subject.LongSubject,
                         Type = info[1],
                         Room = info[2],
-                        Group = info[3],
+                        Group = info[3].Trim(new[] {';', ' ', ','}),
                         Date = array[1].Trim(),
                         Start = array[2].Trim(),
                         End = array[4].Trim(),
@@ -142,7 +143,9 @@ namespace PrPr_Project.BL.Api
                 }
             }
 
-            return JsonConvert.SerializeObject(subjectList, Formatting.None);
+            var lessons = subjectList.OrderBy(e => DateTime.Parse(e.Date)).ThenBy(e => DateTime.Parse(e.Start))
+                .ToList();
+            return JsonConvert.SerializeObject(lessons, Formatting.None);
         }
 
         public string GetNews()
@@ -159,6 +162,37 @@ namespace PrPr_Project.BL.Api
                 name == null
                     ? alternatives.Take(5).ToList()
                     : alternatives.Where(alternative => alternative.Name.Contains(name)).ToList(), Formatting.None);
+        }
+
+        public string GetSeveralSchedules(Dictionary<string, List<string>> dictionary)
+        {
+            var sb = new StringBuilder();
+            foreach (var element in dictionary)
+            {
+                if (element.Key.Equals("Teacher"))
+                {
+                    foreach (var value in element.Value)
+                    {
+                        sb.Append(TeacherSchedule(int.Parse(value)).Trim(new char[] {'[', ']'})).Append(',');
+                    }
+                }
+                else if (element.Key.Equals("Group"))
+                {
+                    foreach (var value in element.Value)
+                    {
+                        sb.Append(GroupSchedule(int.Parse(value)).Trim(new char[] {'[', ']'})).Append(',');
+                    }
+                }
+            }
+
+            sb.Replace(',', ']', sb.Length - 1, 1);
+            sb.Insert(0, '[');
+
+            var lessons = JsonConvert.DeserializeObject<List<Lesson>>(sb.ToString());
+            lessons = lessons.OrderBy(e => DateTime.Parse(e.Date)).ThenBy(e => DateTime.Parse(e.Start))
+                .GroupBy(e => new {e.Date, e.Start, e.Group})
+                .Select(e => e.First()).ToList();
+            return JsonConvert.SerializeObject(lessons, Formatting.None);
         }
 
         /// <summary>
