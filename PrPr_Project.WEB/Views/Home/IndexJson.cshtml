@@ -1,0 +1,43 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>title</h2>
+<div class="text">
+    Text for change
+</div>
+<div>
+    <button class="send-btn">Send</button>
+</div>
+<script>
+    var button = document.querySelector(".send-btn");
+    var text = document.querySelector(".text");
+    button.addEventListener("click", change);
+    
+    function change(){
+        var textN = document.createTextNode("NewText");
+        text.removeChild(text.childNodes[0]);
+        text.appendChild(textN);
+    }
+    
+    function request(){
+        var req = new XMLHttpRequest();
+        req.open("POST", "../Api/SeveralSchedules", true);
+        var string = "{\"Teacher\": [\"313\", \"9\"], \"Group\":[\"6283375\"]}";
+        req.send(string);
+        req.onreadystatechange = function(){
+            if(req.readyState == 4){
+                if(req.status == 200){
+                    var div = document.createElement("div");
+                    var textNode = document.createTextNode(req.responseText);
+                    div.appendChild(textNode);
+                    document.body.appendChild(div);
+                }
+            }
+        };
+    }
+</script>
+

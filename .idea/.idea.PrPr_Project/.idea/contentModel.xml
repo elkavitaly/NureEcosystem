@@ -454,6 +454,7 @@
             <e p="Catalog.cshtml" t="Include" />
             <e p="Contact.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
+            <e p="IndexJson.cshtml" t="Include" />
           </e>
           <e p="Manage" t="Include">
             <e p="AddPhoneNumber.cshtml" t="Include" />
@@ -462,9 +463,6 @@
             <e p="ManageLogins.cshtml" t="Include" />
             <e p="SetPassword.cshtml" t="Include" />
             <e p="VerifyPhoneNumber.cshtml" t="Include" />
-          </e>
-          <e p="Schedule" t="Include">
-            <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />

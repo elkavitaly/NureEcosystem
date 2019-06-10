@@ -1,12 +1,9 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using AutoMapper;
 using PrPr_Project.BL.DTO;
 using PrPr_Project.BL.Services;
 using PrPr_Project.WEB.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace PrPr_Project.WEB.Controllers
 {
@@ -20,6 +17,11 @@ namespace PrPr_Project.WEB.Controllers
         }
 
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult IndexJson()
         {
             return View();
         }
