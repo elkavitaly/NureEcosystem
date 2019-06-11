@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PrPr_Project.WEB.Models.AlternativeViewModel>
+@{
+    ViewBag.Title = "Справочник";
+}
+@Styles.Render("~/Content/Icons")
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <input id="catalog_search_input" class="form-control form-control-lg alternative_search" type="text" placeholder="Начните вводить для поиска">
+        </div>
+    </div>
+    <div class="row">
+        <div id="catalog_items" class="col-lg-12">
+            @foreach (var item in Model)
+            {
+                <div class="catalog_item">
+                    <div class="catalog_item_title">@item.Name</div>
+                    <div class="d-flex justify-content-between catalog_item_info_holder">
+                        <div class="catalog_item_faculty">Факультет: @item.Faculty</div>
+                        <div class="catalog_item_speciality">Специальность: @item.Speciality</div>
+                    </div>
+                    <div class="catalog_item_content">@item.Description</div>
+                    <!--                    <div class="catalog_item_arrow_holder"><i class="pe-7s-angle-down-circle"></i></div>-->
+                    <div class="catalog_item_arrow_holder">
+                        <i class="pe-7s-angle-down"></i>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

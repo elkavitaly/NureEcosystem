@@ -1,0 +1,14 @@
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\PrPr_Project.DAL.dll.config
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\PrPr_Project.DAL.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\PrPr_Project.DAL.pdb
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\EntityFramework.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\EntityFramework.xml
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\ru\EntityFramework.resources.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Release\PrPr_Project.DAL.csprojAssemblyReference.cache
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Release\PrPr_Project.DAL.csproj.CoreCompileInputs.cache
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Release\PrPr_Project.DAL.csproj.CopyComplete
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Release\PrPr_Project.DAL.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Release\PrPr_Project.DAL.pdb

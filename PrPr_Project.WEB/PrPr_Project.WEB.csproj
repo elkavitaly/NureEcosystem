@@ -34,6 +34,20 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MixedRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="ApplicationContext-развертывание" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28LocalDb%29\MSSQLLocalDB%3bAttachDbFilename=|DataDirectory|\aspnet-PrPr_Project.WEB-20190508013552.mdf%3bInitial Catalog=aspnet-PrPr_Project.WEB-20190508013552%3bIntegrated Security=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\ApplicationContext-развертывание_SchemaAndData.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -470,6 +484,9 @@
     <Content Include="Content\Icon-font-7-stroke-PIXEDEN-v-1.2.0\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
     <Content Include="Content\Icon-font-7-stroke-PIXEDEN-v-1.2.0\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="Content\Icon-font-7-stroke-PIXEDEN-v-1.2.0\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="libman.json" />
+    <None Include="Properties\PublishProfiles\NureEcosystem - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\PrPrProjectWEB20190611064918 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\catalog_search.js" />
     <Content Include="Scripts\catalog_toggle.js" />
@@ -485,7 +502,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-      <Content Include="Views\Home\IndexJson.cshtml"/>
+    <Content Include="Views\Home\IndexJson.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -525,7 +542,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-      <Folder Include="Content\Images"/>
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -545,10 +562,10 @@
       <Project>{645a024d-6256-440d-b8f1-b9d80bb1fe90}</Project>
       <Name>PrPr_Project.BL</Name>
     </ProjectReference>
-      <ProjectReference Include="..\PrPr_Project.DAL\PrPr_Project.DAL.csproj">
-          <Project>{932135f0-9959-42f9-b377-f9bdc11fdec9}</Project>
-          <Name>PrPr_Project.DAL</Name>
-      </ProjectReference>
+    <ProjectReference Include="..\PrPr_Project.DAL\PrPr_Project.DAL.csproj">
+      <Project>{932135f0-9959-42f9-b377-f9bdc11fdec9}</Project>
+      <Name>PrPr_Project.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905091258236_InitialCreate.resx">

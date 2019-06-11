@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ApplicationContext-Web.config Connection String" description="ApplicationContext Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-PrPr_Project.WEB-20190508013552.mdf;Initial Catalog=aspnet-PrPr_Project.WEB-20190508013552;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\drago\\OneDrive\\Документы\\GitHub\\NureEcosystem\\PrPr_Project\.WEB\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ApplicationContext']/@connectionString" />
+  </parameter>
+</parameters>
