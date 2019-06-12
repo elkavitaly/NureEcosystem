@@ -1,80 +1,128 @@
-﻿@{
+﻿@model IEnumerable<PrPr_Project.WEB.Models.NewsItemViewModel>
+
+@{
     ViewBag.Title = "Новости";
 }
-<div>
-    <img src="/Api/Image" alt="">
-</div>
-<div class="container">
-    <div class="row news_block">
+
+@* <div class="container"> *@
+@*     <div class="row news_block"> *@
+@*         <div class="col-lg-4 sources_holder"> *@
+@*             <div class="sources_sign_block">Источники</div> *@
+@*             <div class="checkbox_holder"> *@
+@*                 <div class="custom-control custom-checkbox"> *@
+@*                     <input type="checkbox" class="custom-control-input" id="customCheck1"> *@
+@*                     <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label> *@
+@*                 </div> *@
+@*             </div> *@
+@*             <div class="checkbox_holder"> *@
+@*                 <div class="custom-control custom-checkbox"> *@
+@*                     <input type="checkbox" class="custom-control-input" id="customCheck2"> *@
+@*                     <label class="custom-control-label" for="customCheck2">Check this custom checkbox</label> *@
+@*                 </div> *@
+@*             </div> *@
+@*             <div class="checkbox_holder"> *@
+@*                 <div class="custom-control custom-checkbox "> *@
+@*                     <input type="checkbox" class="custom-control-input" id="customCheck3"> *@
+@*                     <label class="custom-control-label" for="customCheck3">Check this custom checkbox</label> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*         <div class="col-lg-8 news_holder"> *@
+@* *@
+@*             @#1#Scripts.Render("~/Journalist")#1# *@
+@*             @foreach (var item in Model) *@
+@*             { *@
+@*                 <div class="news_item"> *@
+@*                     <div class="news_item_content"> *@
+@*                         <div class="row news_item_content_title_holder"> *@
+@*                             <div class="col-lg-9 news_item_content_title"> *@
+@*                                 <a href="/Home/Preview/@item.Id">@item.Name</a> *@
+@*                             </div> *@
+@*                             <div class="col-lg-3 news_item_content_source"> *@
+@*                                 <a href="#">@item.Author</a> *@
+@*                             </div> *@
+@*                         </div> *@
+@*                         <div class="news_item_content_description"> *@
+@*                             @{ var c = new MvcHtmlString(item.Content); } @c *@
+@*                         </div> *@
+@*                     </div> *@
+@*                 </div> *@
+@*             } *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+
+<div class="main-article">
+      <h1>Новости</h1>
+      <hr class="line-after-article" />
+    </div>
+
+    <div class="container">
+      <div class="row news_block">
         <div class="col-lg-4 sources_holder">
-            <div class="sources_sign_block">Источники</div>
-            <div class="checkbox_holder">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-                </div>
+          <div class="sources_sign_block">Источники</div>
+          <div class="checkbox_holder">
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="customCheck1"
+              />
+              <label class="custom-control-label" for="customCheck1"
+                >Check this custom checkbox</label
+              >
             </div>
-            <div class="checkbox_holder">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                    <label class="custom-control-label" for="customCheck2">Check this custom checkbox</label>
-                </div>
+          </div>
+          <div class="checkbox_holder">
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="customCheck2"
+              />
+              <label class="custom-control-label" for="customCheck2"
+                >Check this custom checkbox</label
+              >
             </div>
-            <div class="checkbox_holder">
-                <div class="custom-control custom-checkbox ">
-                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                    <label class="custom-control-label" for="customCheck3">Check this custom checkbox</label>
-                </div>
+          </div>
+          <div class="checkbox_holder">
+            <div class="custom-control custom-checkbox ">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="customCheck3"
+              />
+              <label class="custom-control-label" for="customCheck3"
+                >Check this custom checkbox</label
+              >
             </div>
+          </div>
         </div>
         <div class="col-lg-8 news_holder">
-            @*@Scripts.Render("~/Journalist") *@
-            <div class="news_item">
-                <div class="news_item_content">
-                    <div class="row news_item_content_title_holder">
-                        <div class="col-lg-9 news_item_content_title">
-                            <a href="#">Проспект им. Жукова, минирования и "фанаты ДНР". Возможен ли реванш "русской весны" в Харькове?</a>
-                        </div>
-                        <div class="col-lg-3 news_item_content_source">
-                            <a href="#">Профком</a>
-                        </div>
-                    </div>
-                    <div class="news_item_content_description">
-                        Полицейскому, пострадавшему во время стрельбы на проспекте Победы, собирают деньги на операцию.
+          
+            @Scripts.Render("~/Journalist")
+                        @foreach (var item in Model) 
+                         {
 
-                        Командиру штурмового взвода батальона полиции особого назначения Евгению Лободе сделали уже третью операцию. Об этом сообщили в пресс-службе Нацполиции в Харьковской области.
-
-                        Для спасения его жизни необходимы значительные деньги, отмечают в полиции.
-
-                        Напомним, что 6 мая в Харькове возле дома по проспекту Победы 41-летний водитель автомобиля «Ford Focus» 8 раз выстрелил из пистолета в 35-летнего майора полиции. Причиной стал конфликт из-за неправильной парковки водителя. Во время ссоры полицейский повредил боковое стекло авто. В результате он получил ранения головы и грудной клетки.
-                    </div>
-                </div>
-            </div>
+                           <div class="news_item">
+                             <div class="news_item_content">
+                               <div class="row news_item_content_title_holder">
+                                 <div class="col-lg-2 block_news"><p>Новости</p></div>
+                                 <div class="col-lg-10 news_item_content_source">
+                                   <p>@item.Author</p>
+                                 </div>
+                               </div>
+                               <div class="news_item_content_title">
+                                 <a href="/Home/Preview/@item.Id">@item.Name</a> 
+                               </div>
+                               <div class="news_item_content_description">
+                                 @{ var c = new MvcHtmlString(item.Content); } @c 
+                               </div>
+                             </div>
+                           </div>
+                         } 
+          
         </div>
-    </div>
-    <div class="row justify-content-center pagination_row">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
+      </div>
+    
+  </div>

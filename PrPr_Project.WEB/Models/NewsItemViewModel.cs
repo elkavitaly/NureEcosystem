@@ -12,5 +12,6 @@ namespace PrPr_Project.WEB.Models
         public string Author { get; set; }
         public string Content { get; set; }
         public DateTime Date { get; set; }
+        public string Img { get; set; }
     }
 }

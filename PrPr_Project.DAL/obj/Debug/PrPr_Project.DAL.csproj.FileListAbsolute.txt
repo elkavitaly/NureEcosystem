@@ -40,3 +40,6 @@ C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Debug\PrPr_Project.DAL.csprojAssemblyReference.cache
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Debug\PrPr_Project.DAL.csproj.CoreCompileInputs.cache
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Debug\PrPr_Project.DAL.csproj.CopyComplete
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Debug\AutoMapper.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Debug\AutoMapper.pdb
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Debug\AutoMapper.xml

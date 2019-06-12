@@ -4,12 +4,17 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using PrPr_Project.BL.Api;
 using PrPr_Project.BL.DTO;
 using PrPr_Project.DAL.Entities;
 using PrPr_Project.WEB.Models;
+using TeleSharp.TL;
+using TeleSharp.TL.Channels;
+using TeleSharp.TL.Messages;
+using TLSharp.Core;
 
 namespace PrPr_Project.WEB.Controllers
 {
@@ -30,10 +35,10 @@ namespace PrPr_Project.WEB.Controllers
             }
         }
 
-//        public JsonResult News()
-//        {
-//            return Json(Api.GetNews(), JsonRequestBehavior.AllowGet);
-//        }
+        //        public JsonResult News()
+        //        {
+        //            return Json(Api.GetNews(), JsonRequestBehavior.AllowGet);
+        //        }
 
         public JsonResult News()
         {
@@ -65,10 +70,10 @@ namespace PrPr_Project.WEB.Controllers
                 JsonRequestBehavior.AllowGet);
         }
 
-//        public JsonResult Alternatives(string name)
-//        {
-//            return Json(Api.GetAlternatives(name), JsonRequestBehavior.AllowGet);
-//        }
+        //        public JsonResult Alternatives(string name)
+        //        {
+        //            return Json(Api.GetAlternatives(name), JsonRequestBehavior.AllowGet);
+        //        }
 
         public JsonResult Alternatives(string name)
         {
@@ -80,11 +85,11 @@ namespace PrPr_Project.WEB.Controllers
             }
 
             var list = JsonConvert.DeserializeObject(json, typeof(Alternative));
-//            var list = Deserialize<AlternativeViewModel>(new StreamReader(path).BaseStream);
+            //            var list = Deserialize<AlternativeViewModel>(new StreamReader(path).BaseStream);
 
-//            var serialized = JsonConvert.SerializeObject(name == null
-//                ? list.Take(5).ToList()
-//                : list.Where(alternative => alternative.Name.Contains(name)).ToList(), Formatting.None);
+            //            var serialized = JsonConvert.SerializeObject(name == null
+            //                ? list.Take(5).ToList()
+            //                : list.Where(alternative => alternative.Name.Contains(name)).ToList(), Formatting.None);
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 

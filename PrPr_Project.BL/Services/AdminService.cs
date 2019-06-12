@@ -63,5 +63,29 @@ namespace PrPr_Project.BL.Services
         {
             Database.Dispose();
         }
+ 
+        public IEnumerable<NewsItemDTO> GetAllNews()
+        {
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<NewsItem, NewsItemDTO>()).CreateMapper();
+            return mapper.Map<IEnumerable<NewsItem>, List<NewsItemDTO>>(Database.NewsItems.GetAll());
+        }
+
+        public NewsItemDTO GetNewsItem(int? id)
+        {
+            if (id == null)
+                throw new Exception("Не установлено id альтернативы");
+            var n = Database.NewsItems.Get(id.Value);
+            if (n == null)
+                throw new Exception("Телефон не найден");
+
+            return new NewsItemDTO { Name = n.Name, Id = n.Id, Author = n.Author, Content = n.Content, Date = n.Date, Img = n.Img };
+        }
+
+        public void CreateNewsItem(NewsItemDTO newsItem)
+        {
+            var n = new NewsItem { Id = newsItem.Id, Name = newsItem.Name, Content = newsItem.Content, Author = newsItem.Author, Date = newsItem.Date, Img = newsItem.Img };
+            Database.NewsItems.Create(n);
+            Database.Save();
+        }
     }
 }

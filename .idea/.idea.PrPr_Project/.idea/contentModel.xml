@@ -462,8 +462,10 @@
           <e p="Home" t="Include">
             <e p="Catalog.cshtml" t="Include" />
             <e p="Contact.cshtml" t="Include" />
+            <e p="CreateNews.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
             <e p="IndexJson.cshtml" t="Include" />
+            <e p="Preview.cshtml" t="Include" />
           </e>
           <e p="Manage" t="Include">
             <e p="AddPhoneNumber.cshtml" t="Include" />

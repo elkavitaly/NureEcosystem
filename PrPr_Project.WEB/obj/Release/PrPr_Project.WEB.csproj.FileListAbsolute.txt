@@ -134,3 +134,12 @@ C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\obj\Release\PrPr_Project.WEB.csproj.CopyComplete
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\obj\Release\PrPr_Project.WEB.dll
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\obj\Release\PrPr_Project.WEB.pdb
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\BigMath.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\Ionic.Zip.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\Ionic.ZLib.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\RestSharp.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\TeleBot.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\TeleSharp.TL.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\TLSharp.Core.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\Ionic.Zip.xml
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.WEB\bin\RestSharp.xml
