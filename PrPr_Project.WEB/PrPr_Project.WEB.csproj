@@ -235,6 +235,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Data\Alternatives.json" />
+    <Content Include="Content\Data\News.json" />
     <Content Include="Content\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\docs\style.css" />
     <Content Include="Content\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\fonts\Pe-icon-7-stroke.svg" />
     <Content Include="Content\Icon-font-7-stroke-PIXEDEN-v-1.2.0\assets\images\background-paralax.jpg" />

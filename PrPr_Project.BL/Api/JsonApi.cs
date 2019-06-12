@@ -17,7 +17,7 @@ namespace PrPr_Project.BL.Api
 {
     public class JsonApi : IApi
     {
-        private const string Uri = "http://localhost:51763/";
+        private const string Uri = "https://nureecosystem.azurewebsites.net/";
 
         private const string Path = "http://cist.nure.ua/ias/app/tt/";
 
