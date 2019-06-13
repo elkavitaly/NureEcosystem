@@ -1,19 +1,17 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
 using PrPr_Project.BL.DTO;
 using PrPr_Project.BL.Interfaces;
 using PrPr_Project.DAL.Entities;
 using PrPr_Project.DAL.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrPr_Project.BL.Services
 {
     public class AdminService : IAdminService
     {
-        IUnitOfWork Database { get; set; }
+        private IUnitOfWork Database { get; set; }
 
         public AdminService(IUnitOfWork uow)
         {
@@ -22,7 +20,11 @@ namespace PrPr_Project.BL.Services
 
         public void CreateAlternative(AlternativeDTO item)
         {
-            Alternative alt = new Alternative { Id = item.Id.Value, Name = item.Name, Description = item.Description, Faculty = item.Faculty, Speciality = item.Speciality };
+            var alt = new Alternative
+            {
+                Id = item.Id.Value, Name = item.Name, Description = item.Description, Faculty = item.Faculty,
+                Speciality = item.Speciality
+            };
             Database.Alternatives.Create(alt);
             Database.Save();
         }
@@ -49,12 +51,20 @@ namespace PrPr_Project.BL.Services
             if (alt == null)
                 throw new Exception("Телефон не найден");
 
-            return new AlternativeDTO { Name = alt.Name, Id = alt.Id, Description = alt.Description, Faculty = alt.Faculty, Speciality = alt.Speciality };
+            return new AlternativeDTO
+            {
+                Name = alt.Name, Id = alt.Id, Description = alt.Description, Faculty = alt.Faculty,
+                Speciality = alt.Speciality
+            };
         }
 
         public void UpdateAlternative(AlternativeDTO item)
         {
-            Alternative alt = new Alternative { Id = item.Id.Value, Name = item.Name, Description = item.Description, Faculty = item.Faculty, Speciality = item.Speciality  };
+            Alternative alt = new Alternative
+            {
+                Id = item.Id.Value, Name = item.Name, Description = item.Description, Faculty = item.Faculty,
+                Speciality = item.Speciality
+            };
             Database.Alternatives.Update(alt);
             Database.Save();
         }
@@ -63,7 +73,7 @@ namespace PrPr_Project.BL.Services
         {
             Database.Dispose();
         }
- 
+
         public IEnumerable<NewsItemDTO> GetAllNews()
         {
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<NewsItem, NewsItemDTO>()).CreateMapper();
@@ -78,14 +88,40 @@ namespace PrPr_Project.BL.Services
             if (n == null)
                 throw new Exception("Телефон не найден");
 
-            return new NewsItemDTO { Name = n.Name, Id = n.Id, Author = n.Author, Content = n.Content, Date = n.Date, Img = n.Img };
+            return new NewsItemDTO
+                {Name = n.Name, Id = n.Id, Author = n.Author, Content = n.Content, Date = n.Date, Img = n.Img};
         }
 
         public void CreateNewsItem(NewsItemDTO newsItem)
         {
-            var n = new NewsItem { Id = newsItem.Id, Name = newsItem.Name, Content = newsItem.Content, Author = newsItem.Author, Date = newsItem.Date, Img = newsItem.Img };
+            var n = new NewsItem
+            {
+                Id = newsItem.Id, Name = newsItem.Name, Content = newsItem.Content, Author = newsItem.Author,
+                Date = newsItem.Date, Img = newsItem.Img
+            };
             Database.NewsItems.Create(n);
             Database.Save();
+        }
+
+        public IEnumerable<NewsItemDTO> Filter(IEnumerable<string> source)
+        {
+            var list = Database.NewsItems.GetAll().ToList();
+            var result = new List<NewsItem>();
+
+            if (source.ToList().Count == 0)
+            {
+                result = list;
+            }
+            else
+            {
+                foreach (var elem in source)
+                {
+                    result.AddRange(list.Where(n => n.Author.Equals(elem)));
+                }
+            }
+
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<NewsItem, NewsItemDTO>()).CreateMapper();
+            return mapper.Map<IEnumerable<NewsItem>, IEnumerable<NewsItemDTO>>(result);
         }
     }
 }

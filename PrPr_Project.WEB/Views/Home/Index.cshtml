@@ -53,76 +53,154 @@
 @* </div> *@
 
 <div class="main-article">
-      <h1>Новости</h1>
-      <hr class="line-after-article" />
-    </div>
+    <h1>Новости</h1>
+    <hr class="line-after-article"/>
+</div>
 
-    <div class="container">
-      <div class="row news_block">
+<div class="container">
+    <div class="row news_block">
         <div class="col-lg-4 sources_holder">
-          <div class="sources_sign_block">Источники</div>
-          <div class="checkbox_holder">
-            <div class="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                class="custom-control-input"
-                id="customCheck1"
-              />
-              <label class="custom-control-label" for="customCheck1"
-                >Check this custom checkbox</label
-              >
-            </div>
-          </div>
-          <div class="checkbox_holder">
-            <div class="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                class="custom-control-input"
-                id="customCheck2"
-              />
-              <label class="custom-control-label" for="customCheck2"
-                >Check this custom checkbox</label
-              >
-            </div>
-          </div>
-          <div class="checkbox_holder">
-            <div class="custom-control custom-checkbox ">
-              <input
-                type="checkbox"
-                class="custom-control-input"
-                id="customCheck3"
-              />
-              <label class="custom-control-label" for="customCheck3"
-                >Check this custom checkbox</label
-              >
-            </div>
-          </div>
+            <div class="sources_sign_block">Источники</div>
+            @using (Html.BeginForm("Sort", "Home", FormMethod.Post, new {id = "form"}))
+            {
+                <div class="checkbox_holder">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="source" value="Профком" id="customCheck1"/>
+                        <label class="custom-control-label" for="customCheck1">
+                            Профком
+                        </label>
+                    </div>
+                </div>
+                <div class="checkbox_holder">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="source" value="Сенат" id="customCheck2"/>
+                        <label class="custom-control-label" for="customCheck2">
+                            Сенат
+                        </label>
+                    </div>
+                </div>
+                <div class="checkbox_holder">
+                    <div class="custom-control custom-checkbox ">
+                        <input type="checkbox" class="custom-control-input" name="source" value="Карьера" id="customCheck3"/>
+                        <label class="custom-control-label" for="customCheck3">
+                            Центр каьреры
+                        </label>
+                    </div>
+                </div>
+            }
         </div>
         <div class="col-lg-8 news_holder">
-          
             @Scripts.Render("~/Journalist")
-                        @foreach (var item in Model) 
-                         {
-
-                           <div class="news_item">
-                             <div class="news_item_content">
-                               <div class="row news_item_content_title_holder">
-                                 <div class="col-lg-2 block_news"><p>Новости</p></div>
-                                 <div class="col-lg-10 news_item_content_source">
-                                   <p>@item.Author</p>
-                                 </div>
-                               </div>
-                               <div class="news_item_content_title">
-                                 <a href="/Home/Preview/@item.Id">@item.Name</a> 
-                               </div>
-                               <div class="news_item_content_description">
-                                 @{ var c = new MvcHtmlString(item.Content); } @c 
-                               </div>
-                             </div>
-                           </div>
-                         } 
-          
+            @foreach (var item in Model)
+            {
+                <div class="news_item">
+                    <div class="news_item_content">
+                        <div class="row news_item_content_title_holder">
+                            <div class="col-lg-2 block_news">
+                                <p>Новости</p>
+                            </div>
+                            <div class="col-lg-10 news_item_content_source">
+                                <p>@item.Author</p>
+                            </div>
+                        </div>
+                        <div class="news_item_content_title">
+                            <a href="/Home/Preview/@item.Id">@item.Name</a>
+                        </div>
+                        <div class="news_item_content_description">
+                            @{ var c = new MvcHtmlString(item.Content); }
+                            @c
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
-      </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", query);
+    var form = document.querySelector("#form");
+    form.addEventListener("change", query);
     
-  </div>
+    function query(){
+            var boxes = document.querySelectorAll("input");
+            var result =[];
+            for(let elem of boxes){
+                if(elem.checked){
+                    result.push(elem.value);
+                }
+            }
+            let json = JSON.stringify(result);
+            
+            var response = "";
+            var request = new XMLHttpRequest();
+            request.open("POST", "Home/Sort", true);
+            request.send(json);
+            request.onreadystatechange = function(){
+                if(request.readyState == 4){
+                    if(request.status == 200){
+                        fillPage(request.responseText);
+                    }
+                }
+            }     
+        }
+    
+    function fillPage(json){
+        var data = JSON.parse(json);
+        
+        var news_block = document.querySelector(".news_block");
+        news_block.removeChild(document.querySelector(".news_holder"));
+        
+        var news_holder = document.createElement("div");
+        news_holder.className = "col-lg-8 news_holder";
+        
+        for(let element of data){
+            var news_item = document.createElement("div");
+            news_item.className = "news_item";
+            
+            var news_item_content = document.createElement("div");
+            news_item_content.className = "news_item_content";
+            
+            var news_item_content_title_holder = document.createElement("div");
+            news_item_content_title_holder.className = "row news_item_content_title_holder";
+            
+            var block_news = document.createElement("div");
+            block_news.className = "col-lg-2 block_news";
+            
+            var block_news_p = document.createElement("p");
+            block_news_p.appendChild(document.createTextNode("Новости"));
+            block_news.appendChild(block_news_p);
+            
+            var news_item_content_source = document.createElement("div");
+            news_item_content_source.className = "col-lg-10 news_item_content_source";
+            
+            var news_item_content_source_p = document.createElement("p");
+            news_item_content_source_p.appendChild(document.createTextNode(element["Author"]));
+            news_item_content_source.appendChild(news_item_content_source_p);
+            
+            news_item_content_title_holder.appendChild(block_news);
+            news_item_content_title_holder.appendChild(news_item_content_source);
+            news_item_content.appendChild(news_item_content_title_holder);
+            
+            var news_item_content_title = document.createElement("div");
+            news_item_content_title.className = "news_item_content_title";
+            
+            var link = document.createElement("a");
+            link.setAttribute("href", "/Home/Preview/" + element["Id"]);
+            link.appendChild(document.createTextNode(element["Name"]));
+            news_item_content_title.appendChild(link);
+            news_item_content.appendChild(news_item_content_title);
+            
+            var news_item_content_description = document.createElement("div");
+            news_item_content_description.className = "news_item_content_description";
+            news_item_content_description.appendChild(document.createTextNode(element["Content"]));
+            news_item_content.appendChild(news_item_content_description);
+            
+            
+            news_item.appendChild(news_item_content);
+            news_holder.appendChild(news_item);
+        }
+        news_block.appendChild(news_holder);
+        
+    }
+</script>

@@ -12,3 +12,6 @@ C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Release\PrPr_Project.DAL.csproj.CopyComplete
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Release\PrPr_Project.DAL.dll
 C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\obj\Release\PrPr_Project.DAL.pdb
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\AutoMapper.dll
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\AutoMapper.pdb
+C:\Users\drago\OneDrive\Документы\GitHub\NureEcosystem\PrPr_Project.DAL\bin\Release\AutoMapper.xml

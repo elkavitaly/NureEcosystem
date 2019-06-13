@@ -46,19 +46,20 @@
                    -29 -111 0 -134 4 -208 29 -193 65 -326 183 -411 360 -52 109 -65 171 -65 300
                    1 110 10 167 41 238 l16 38 116 -3 115 -3 78 -109z m764 25 c67 -41 80 -132
                    26 -192 -37 -42 -78 -48 -292 -49 -205 0 -211 1 -250 65 l-21 35 57 80 58 80
-                   195 0 c174 0 199 -2 227 -19z"/>
+                   195 0 c174 0 199 -2 227 -19z">
+                                </path>
                             </g>
                         </svg>
                     </div>
                     <div class="header_row__logo">
-                        <a class="header_row_a" href="index.html">Nure Ecosystem</a>
+                        @Html.ActionLink("Nure Ecosystem", "Index", "Home", new {@class = "header_row_a"})
                     </div>
                 </div>
 
                 <div class="col-lg-4">
                     <div class="row menu_items">
-                   
-                        
+
+
                         @{
                             if (User.Identity.IsAuthenticated)
                             {

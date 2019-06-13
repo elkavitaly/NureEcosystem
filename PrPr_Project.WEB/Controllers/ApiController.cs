@@ -1,20 +1,12 @@
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using PrPr_Project.BL.Api;
-using PrPr_Project.BL.DTO;
 using PrPr_Project.DAL.Entities;
-using PrPr_Project.WEB.Models;
-using TeleSharp.TL;
-using TeleSharp.TL.Channels;
-using TeleSharp.TL.Messages;
-using TLSharp.Core;
 
 namespace PrPr_Project.WEB.Controllers
 {
@@ -26,7 +18,6 @@ namespace PrPr_Project.WEB.Controllers
 
         public ActionResult Image(string name)
         {
-
             using (new HttpResponseMessage())
             {
                 var directory = Server.MapPath("/Content/Images");
@@ -40,34 +31,43 @@ namespace PrPr_Project.WEB.Controllers
         //            return Json(Api.GetNews(), JsonRequestBehavior.AllowGet);
         //        }
 
-        public JsonResult News()
+        public async Task<JsonResult> News()
         {
             var path = Path.Combine(Server.MapPath("../Content/Data"), "News.json");
             using (var stream = new StreamReader(path))
             {
                 var json = stream.ReadToEnd();
-                return Json(json, JsonRequestBehavior.AllowGet);
+                return await Task.Run(() => Json(json, JsonRequestBehavior.AllowGet));
             }
         }
 
-        public JsonResult AllGroups() => Json(Api.GetAllGroups(), JsonRequestBehavior.AllowGet);
-
-        public JsonResult AllTeachers() => Json(Api.GetAllTeachers(), JsonRequestBehavior.AllowGet);
-
-        public JsonResult GroupSchedule()
+        public async Task<JsonResult> AllGroups()
         {
-            return Json(Api.GroupSchedule(Deserialize<int>(Request.InputStream)), JsonRequestBehavior.AllowGet);
+            return await Task.Run(() => Json(Api.GetAllGroups(), JsonRequestBehavior.AllowGet));
         }
 
-        public JsonResult TeacherSchedule()
+        public async Task<JsonResult> AllTeachers()
         {
-            return Json(Api.TeacherSchedule(Deserialize<int>(Request.InputStream)), JsonRequestBehavior.AllowGet);
+            return await Task.Run(() => Json(Api.GetAllTeachers(), JsonRequestBehavior.AllowGet));
         }
 
-        public JsonResult SeveralSchedules()
+        public async Task<JsonResult> GroupSchedule()
         {
-            return Json(Api.GetSeveralSchedules(Deserialize<Dictionary<string, List<string>>>(Request.InputStream)),
-                JsonRequestBehavior.AllowGet);
+            return await Task.Run(() =>
+                Json(Api.GroupSchedule(Deserialize<int>(Request.InputStream)), JsonRequestBehavior.AllowGet));
+        }
+
+        public async Task<JsonResult> TeacherSchedule()
+        {
+            return await Task.Run(() =>
+                Json(Api.TeacherSchedule(Deserialize<int>(Request.InputStream)), JsonRequestBehavior.AllowGet));
+        }
+
+        public async Task<JsonResult> SeveralSchedules()
+        {
+            return await Task.Run(() =>
+                Json(Api.GetSeveralSchedules(Deserialize<Dictionary<string, List<string>>>(Request.InputStream)),
+                    JsonRequestBehavior.AllowGet));
         }
 
         //        public JsonResult Alternatives(string name)
@@ -110,7 +110,7 @@ namespace PrPr_Project.WEB.Controllers
             }
         }
 
-        private static T Deserialize<T>(Stream stream)
+        public static T Deserialize<T>(Stream stream)
         {
             string content;
             using (var streamReader = new StreamReader(stream))

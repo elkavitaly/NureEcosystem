@@ -34,10 +34,10 @@ namespace PrPr_Project.WEB.Controllers
 
         public ActionResult Catalog()
         {
-            var phoneDtos = adminService.GetAll();
+            var phoneList = adminService.GetAll();
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<AlternativeDTO, AlternativeViewModel>())
                 .CreateMapper();
-            var alternatives = mapper.Map<IEnumerable<AlternativeDTO>, List<AlternativeViewModel>>(phoneDtos);
+            var alternatives = mapper.Map<IEnumerable<AlternativeDTO>, List<AlternativeViewModel>>(phoneList);
             return View(alternatives);
         }
 
@@ -45,7 +45,7 @@ namespace PrPr_Project.WEB.Controllers
         {
             return View();
         }
- 
+
         public ActionResult CreateNews()
         {
             return View();
@@ -54,15 +54,19 @@ namespace PrPr_Project.WEB.Controllers
         [HttpPost]
         public ActionResult CreateNews(NewsItemViewModel newsItem)
         {
-            var n = new NewsItemDTO { Id = newsItem.Id, Name = newsItem.Name, Content = newsItem.Content, Author = newsItem.Author, Date = newsItem.Date, Img = newsItem.Img };
+            var n = new NewsItemDTO
+            {
+                Id = newsItem.Id, Name = newsItem.Name, Content = newsItem.Content, Author = newsItem.Author,
+                Date = newsItem.Date, Img = newsItem.Img
+            };
 
             n.Content = string.Join("<br>", newsItem.Content.Split('\n'));
 
             adminService.CreateNewsItem(n);
-            
+
             return RedirectToAction("CreateNews");
         }
-        
+
         public ActionResult Preview(int id)
         {
             var n = adminService.GetNewsItem(id);
@@ -81,6 +85,16 @@ namespace PrPr_Project.WEB.Controllers
 
             return View(newsItem);
         }
-        
+
+        [HttpPost]
+        public JsonResult Sort()
+        {
+            var boxes = ApiController.Deserialize<List<string>>(Request.InputStream);
+            var list = adminService.Filter(boxes);
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<NewsItemDTO, NewsItemViewModel>())
+                .CreateMapper();
+            var news = mapper.Map<IEnumerable<NewsItemDTO>, List<NewsItemViewModel>>(list);
+            return Json(news, JsonRequestBehavior.AllowGet);
+        }
     }
 }

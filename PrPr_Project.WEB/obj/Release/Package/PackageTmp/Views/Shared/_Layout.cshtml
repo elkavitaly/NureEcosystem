@@ -1,59 +1,101 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8"/>
+    <title>News</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap"
+        rel="stylesheet"/>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
-<body>
-    <header>
-        <div class="header_bg">
-            <div class="container">
-                <div class="row justify-content-between header_row">
-                    <div class="col-lg-2 header_row__logo">LOGO</div>
-                    <div class="col-lg-4">
-                        <div class="row menu_items">
 
-                            @{
-                                if (User.Identity.IsAuthenticated)
-                                {
-                                    <div class="col-lg-4 header_row__cols">@Html.ActionLink("Новости", "Index", "Home")</div>
-                                    <div class="col-lg-4 header_row__cols">@Html.ActionLink("Справочник", "Catalog", "Home")</div>
-                                    <div class="col-lg-4 header_row__cols">
-                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+<body>
+<header>
+    <div class="header_bg">
+        <div class="container">
+            <div class="row justify-content-between header_row">
+                <div class="col-lg-6 d-flex">
+                    <div class="logo-pic">
+                        <svg
+                            version="1.0"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="90px"
+                            height="90px"
+                            viewBox="0 0 162.000000 162.000000"
+                            preserveAspectRatio="xMidYMid meet">
+                            <g
+                                transform="translate(0.000000,162.000000) scale(0.100000,-0.100000)"
+                                fill="#5ED2B8"
+                                stroke="none">
+                                <path
+                                    d="M660 1585 c-291 -59 -532 -279 -612 -560 -30 -105 -32 -315 -5 -415
+                   78 -287 308 -509 597 -575 86 -20 253 -19 343 1 81 18 214 76 279 123 339 241
+                   438 696 228 1053 -167 282 -511 437 -830 373z m309 -106 c277 -66 483 -297
+                   521 -581 13 -97 3 -218 -26 -302 l-16 -46 -469 0 c-258 0 -469 3 -469 6 0 11
+                   132 194 139 194 5 0 20 -18 35 -40 l26 -40 269 0 c193 0 277 4 297 13 54 23
+                   85 50 112 96 51 87 30 222 -45 281 -65 51 -75 52 -394 51 l-196 -1 -53 -75
+                   c-29 -41 -54 -75 -56 -75 -1 0 -42 54 -90 120 l-87 121 -108 -5 c-79 -3 -109
+                   -1 -109 8 0 21 91 115 154 161 172 122 367 162 565 114z m-477 -503 c43 -60
+                   78 -112 78 -115 0 -3 -65 -96 -144 -206 l-144 -200 554 -3 c305 -1 554 -5 554
+                   -8 0 -3 -20 -31 -44 -63 -79 -103 -190 -179 -328 -226 -74 -25 -97 -29 -208
+                   -29 -111 0 -134 4 -208 29 -193 65 -326 183 -411 360 -52 109 -65 171 -65 300
+                   1 110 10 167 41 238 l16 38 116 -3 115 -3 78 -109z m764 25 c67 -41 80 -132
+                   26 -192 -37 -42 -78 -48 -292 -49 -205 0 -211 1 -250 65 l-21 35 57 80 58 80
+                   195 0 c174 0 199 -2 227 -19z"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="header_row__logo">
+                        @Html.ActionLink("Nure Ecosystem", "Index", "Home", new {@class = "header_row_a"})
+                        @* <a class="header_row_a" href="index.html">Nure Ecosystem</a> *@
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="row menu_items">
+                   
+                        
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="col-lg-4 header_row__cols">@Html.ActionLink("Новости", "Index", "Home")</div>
+                                <div class="col-lg-4 header_row__cols">@Html.ActionLink("Справочник", "Catalog", "Home")</div>
+                                <div class="col-lg-4 header_row__cols">
+                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm"}))
                                     {
                                         @Html.AntiForgeryToken()
 
                                         <a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>
                                     }
-                                        </div>
-                                }
-                                else
-                                {
-                                    <div class="col-lg-6 header_row__cols">@Html.ActionLink("Новости", "Index", "Home")</div>
-                                    <div class="col-lg-6 header_row__cols">@Html.ActionLink("Справочник", "Catalog", "Home")</div>
-                                }
+                                </div>
                             }
+                            else
+                            {
+                                <div class="col-lg-6 header_row__cols">@Html.ActionLink("Новости", "Index", "Home")</div>
+                                <div class="col-lg-6 header_row__cols">@Html.ActionLink("Справочник", "Catalog", "Home")</div>
+                            }
+                        }
 
-                            @*@Html.Partial("_LoginPartial")*@
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-
-    @RenderBody()
-
+    </div>
+</header>
 
 
+@RenderBody()
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 </body>
 </html>
